@@ -3,12 +3,13 @@
 if($_POST){
     if(($_POST["user"]=="Fabian") && ($_POST['password']=="root")){
         echo "ok";
+        $_SESSION["user"]="Fabian";
         header("location:index.php");
 
     }
-else{
-    echo "<script>alert('user or password incorrect');</script>";
-}    
+    else{
+        echo "<script>alert('user or password incorrect');</script>";
+    }    
 }
 ?>
 <!doctype html>
@@ -30,28 +31,28 @@ else{
 
     <div class="container">
 
-        <div class="row justify-content-center align-items-center g-2">
+        <div class="row justify-content-center align-items-center g-4">
             </br>
             <div class="col-md-4">
                 </br>
+                
+            <div class="col-md-4"> 
                 <div class="card">
-                        
                     <div class="card-body">
 
                         <H2>Login</H2>
-                        
+
                         <form action="login.php" method="post">
                             user:<input class="form-control" type ="text" name="user" id ="">
                             </br>
-                            password:<input class="form-control" type ="text" name="password" id ="">
+                            password:<input class="form-control" type ="password" name="password" id ="">
                             </br>
                             <button   class="btn btn-success"  type="submit">Entra a la galeria</button>
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">  </div>          
-                
+
+            </div>            
             <div class="col-md-4"> </div>
         </div>
             

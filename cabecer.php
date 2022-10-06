@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION["user"])!="Fabian"){
+    print_r("good");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +18,7 @@
 <body>
     <div class="container">
         <a href="index.php">Inicio</a>
-        <a href="portafolio.php">Portafolio</a>
+        <a href="galeria.php">Portafolio</a>
         <a href="cerrar.php">cerrar</a>
         
 
