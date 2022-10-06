@@ -13,6 +13,11 @@ $sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (
 $objdatab =new conectdb();
 $objdatab->run($sql);
 }
+
+//consult and public
+
+$objdatab = new conectdb();
+$result = $objdatab->query("SELECT * FROM `proyectos`");
 ?>
 
 
@@ -59,18 +64,23 @@ $objdatab->run($sql);
                 <table class="table table-primary">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Img</th>
+                            <th >ID</th>
+                            <th >Nombre</th>
+                            <th >Img</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach($result as $proyect){ ?>
                         <tr class="">
-                            <td >3</td>
-                            <td>appweb</td>
-                            <td>img.jpg</td>
+                            <td ><?php echo $proyect["id"]  ?></td>
+                            <td><?php echo $proyect["nombre"]  ?></td>
+                            <td><?php echo $proyect["imagen"]  ?></td>
+                            <td><a name="" id="" class="btn btn-danger" href="#" >Eliminar</a></td>
+
+
+
                         </tr>
-                    
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

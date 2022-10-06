@@ -19,6 +19,14 @@ class conectdb{
     public function run($sql){
         $this->conect->exec($sql);
         return $this->conect->lastInsertId();
+
+    }
+
+    public function query($sql){
+        $order=$this->conect->prepare($sql);
+        $order->execute();
+        return $order->fetchAll();
+
     }
     
 }
