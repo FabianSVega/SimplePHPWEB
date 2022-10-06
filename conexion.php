@@ -21,13 +21,15 @@ class conectdb{
         return $this->conect->lastInsertId();
 
     }
-
+    //function for creact, delect and consult
     public function query($sql){
         $order=$this->conect->prepare($sql);
         $order->execute();
         return $order->fetchAll();
 
     }
+
+    
     
 }
 
