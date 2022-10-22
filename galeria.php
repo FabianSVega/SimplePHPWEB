@@ -8,26 +8,23 @@
 if($_POST){
 
     print_r($_POST);
-    $namep  = $_POST['name']; 
-    
-    $descp  = $_POST['description'];
-    $sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (NULL,'.$namep.', 'img.jpg', '.$descp.');";
-    $objdatab =new conectdb();
+    $namep    = $_POST['name']; 
+    $descp    = $_POST['description'];
+    $sql      = "INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (NULL,'.$namep.', 'img.jpg', '.$descp.');";
+    $objdatab = new conectdb();
     $objdatab->run($sql);
 }
 
 if($_GET){
 
-    $objdatab =new conectdb();
-    $sql="DELETE FROM proyectos WHERE `proyectos`.`id` =". $_GET["borrar"];
-    $objdatab->run($sql);
-
-    
+    $objdatab = new conectdb();
+    $sql      = "DELETE FROM proyectos WHERE `proyectos`.`id` =". $_GET["borrar"];
+    $objdatab->run($sql);    
 }
 //consult and public
 
-$objdatab = new conectdb();
-$result = $objdatab->query("SELECT * FROM `proyectos`");
+$objdatab   = new conectdb();
+$result     = $objdatab->query("SELECT * FROM `proyectos`");
 ?>
 
 
@@ -67,7 +64,6 @@ $result = $objdatab->query("SELECT * FROM `proyectos`");
 
         </div>
         <div class="col-md-6">
-
         
             <div class="table">
                     <table class="table table-primary">
@@ -85,8 +81,6 @@ $result = $objdatab->query("SELECT * FROM `proyectos`");
                                 <td><?php echo $proyect["nombre"];  ?></td>
                                 <td><?php echo $proyect["imagen"];  ?></td>
                                 <td><a name="" id="" class="btn btn-danger" href="?borrar=<?php echo $proyect["id"];?>">Eliminar</a></td>
-
-
 
                             </tr>
                             <?php } ?>
